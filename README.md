@@ -12,24 +12,23 @@ TeXmacs是一个开源的[WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG)编辑�
 * 自带一个用来转.docx和.pdf文件以及打包的脚本（用来查重的.docx文件不须要格式，上传到系统里查重完成后把pdf文件发给指导老师即可）
 
 ## 为什么不用LaTeX模板？
-主要的原因是''用LaTeX打公式、排版以及合适地使用LaTeX宏包是一项体力活，在一堆符号里寻找微小的错误更是令人绝望''。
-此外TeXmacs有许多讨喜的特性，比如很容易进行的公式和图片的排版、
+主要的原因是『用LaTeX打公式、排版以及合适地使用LaTeX宏包是一项体力活，在一堆符号里寻找微小的错误更是令人绝望』。
+此外TeXmacs有许多讨喜的特性，比如很容易进行的公式、表格和图片的排版、
 可以直接在文档里画图或者是插入外部的计算session、
 容易转MS word文件（通过html）等，详细的信息可以在[官网](https://www.texmacs.org)找到。
 
 ## 关于脚本
-打包的脚本只能在\*nix系统上使用，需要提前安装`pandoc`和`zip`，并保证`pandoc`、`zip`和`texmacs`在系统的搜寻路径内，
-这些知识不是本`README`所应该包含的信息
+打包的脚本只能在类 Unix 系统上使用（macOS，Linux，freeBSD等），且需要提前安装`pandoc`和`zip`，并保证`pandoc`、`zip`和`texmacs`在系统的搜寻路径内，
 （打包成zip是因为docx直接打包成iso放到kvm虚拟机里时，docx后缀会变成DOC）。
 
-脚本分别通过tex和html转docx，我的体验是用html转出来的docx文件几乎没有乱码，但未来的版本可能会有不一样的tex转码器。
+脚本分别通过tex和html转docx，当前版本通过html转的docx文件有更少的错误。
 
 然后在顶层目录内：
 ```bash
 ./thesis-convert.sh
-#or
+# or
 ./thesis-convert.sh <path of the file ending with .tm>
-#or
+# or
 ./thesis-convert.sh <filename of .tm under src/>
 ```
 即可，`tm-docx.zip`会出现在当前目录下。
